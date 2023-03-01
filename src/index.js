@@ -11,7 +11,7 @@ app.use(express.urlencoded({ extended: false }));
 dotenv.config();
 
 // Connect to the database
-mongoose.connect(process.env.MONGODB_URL, {
+mongoose.connect(process.env.MONGODB_URL || "mongodb://localhost:27017/assignment-LT-DB", {
     useNewUrlParser: true
 })
     .then(() => console.log("MongoDb is connected"))
