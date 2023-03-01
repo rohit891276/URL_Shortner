@@ -15,7 +15,7 @@ mongoose.connect(process.env.MONGODB_URL || "mongodb://localhost:27017/assignmen
     useNewUrlParser: true
 })
     .then(() => console.log("MongoDb is connected"))
-    .catch(err => console.log(err))
+    .catch(err => console.log(err));
 
 app.use('/', router);
 

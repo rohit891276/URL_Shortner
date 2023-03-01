@@ -11,4 +11,4 @@ const checkUrl = function (value) {
         return true;
 }
 
-module.exports = { isValid, checkUrl }
+module.exports = { isValid, checkUrl };

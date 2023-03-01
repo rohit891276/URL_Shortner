@@ -45,14 +45,14 @@ const createUrl = async (req, res) => {
             let finalResponse = {
                 longUrl: urlCreated.longUrl,
                 shortUrl: urlCreated.shortUrl,
-                urlId: urlCreated.urlId,
+                urlId: urlCreated.urlId
             };
 
             res.redirect('/')
             // res.status(201).json({ status: true, data: finalResponse }); // this is fro Postman
 
         } else {
-            return res.status(400).json({ status: false, message: "Request body cannot remain empty" })
+            return res.status(400).json({ status: false, message: "Request body cannot remain empty" });
         }
     } catch (error) {
         return res.status(500).json({ status: false, message: error.message });
@@ -80,4 +80,4 @@ const getUrl = async (req, res) => {
 }
 
 
-module.exports = { getData, createUrl, getUrl }
+module.exports = { getData, createUrl, getUrl };
