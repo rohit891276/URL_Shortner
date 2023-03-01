@@ -17,7 +17,9 @@ const createUrl = async (req, res) => {
     try {
         const data = req.body;
         const { longUrl } = data;
-        const baseUrl = "http://localhost:8080/";
+        const baseUrl = "http://localhost:";
+        const addPort = baseUrl + (process.env.PORT || 3000);
+
         if (Object.keys(data).length !== 0) {
 
             //Long Url validation
@@ -36,7 +38,7 @@ const createUrl = async (req, res) => {
             }
 
             const urlCode = ShortId.generate();
-            const urlShort = baseUrl + urlCode;
+            const urlShort = addPort + '/' + urlCode;
             data.shortUrl = urlShort;
             data.urlId = urlCode;
 
