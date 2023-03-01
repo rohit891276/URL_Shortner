@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>URL Shortener</title>
+</head>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        text-decoration: none;
+        list-style: none;
+        box-sizing: border-box;
+    }
+
+    body {
+        background-color: #f2f2f3;
+    }
+
+    .container {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        margin-top: 10vh;
+        color: blueviolet;
+    }
+
+
+    #creatingLink {
+        color: red;
+        margin-top: 40px;
+    }
+
+    .inputFromUser {
+        text-align: center;
+        display: block;
+        width: 508px;
+        padding: 2px;
+        border: 1px solid black;
+        margin: 6px auto;
+        font-size: 25px;
+        border-radius: 8px;
+    }
+
+    .container button {
+        display: flex;
+        margin: 21px auto;
+        width: 50%;
+        height: 30px;
+        border-radius: 8px;
+        justify-content: center;
+        align-items: center;
+        font-size: 20px;
+        color: #050505;
+        background-color: #90bf90;
+    }
+
+    .btn {
+        padding: 18px 0;
+        border: 1px solid grey;
+        cursor: pointer;
+    }
+
+
+    .btn:hover {
+        border: 1px solid #346a45;
+        color: black;
+        cursor: pointer;
+    }
+
+
+    .details {
+        display: flex;
+        margin-top: 50px;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+    }
+
+    .result {
+        background-color: rgb(178 220 198);
+        border: 2px seagreen;
+        border-radius: 5px;
+        padding: 18px;
+        width: 50%;
+        overflow-wrap: break-word;
+        color: #0b3e02;
+        margin-top: 10px;
+        font-size: large;
+        font-weight: bold;
+    }
+
+    .result li a {
+        color: #414540;
+        font-weight: normal !important;
+
+    }
+
+    .result li a:hover {
+        color: #18813f;
+    }
+</style>
+
+<body>
+    <div class="container">
+        <h1>Put Your Long Url Here:</h1>
+        <form action="/shorten" method="POST" id="creatingLink">
+            <input required class="inputFromUser" type="url" name="longUrl" id="longUrl"
+                placeholder="Paste a link to shorten it">
+
+            <button class="btn">Shorten</button>
+
+        </form>
+    </div>
+
+    <div class="details">
+        <%if(shortUrl.length !==0) {%>
+            <ul class="result">
+                <li>
+                    Long URL :
+                    <a href="<%=shortUrl[shortUrl.length-1].longUrl%>" target="_blank">
+                        <%= shortUrl[shortUrl.length-1].longUrl%>
+                    </a>
+                </li>
+                <li>
+                    Short URL :
+                    <a href="<%=shortUrl[shortUrl.length-1].shortUrl%>" target="_blank">
+                        <%= shortUrl[shortUrl.length-1].shortUrl%>
+                    </a>
+                </li>
+            </ul>
+            <% }%>
+    </div>
+
+</body>
+
+</html>
